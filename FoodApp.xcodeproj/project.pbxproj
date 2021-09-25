@@ -15,6 +15,7 @@
 		FF33C39B26D8293500C13C7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF33C39926D8293500C13C7D /* LaunchScreen.storyboard */; };
 		FF540FBD26D95BC0004BF549 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF540FBC26D95BC0004BF549 /* CollectionViewCell.swift */; };
 		FF540FBF26D95E14004BF549 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF540FBE26D95E14004BF549 /* TableViewCell.swift */; };
+		FFB0E85126E0D80D00D61D8C /* ReviewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB0E85026E0D80D00D61D8C /* ReviewRecipeViewController.swift */; };
 		FFF9875526DA5D84006BEE18 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9875426DA5D84006BEE18 /* Food.swift */; };
 		FFFD9D0A26DBD39F00CB5855 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD9D0926DBD39F00CB5855 /* InfoTableViewController.swift */; };
 		FFFE19AF26D911F100E30AFF /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFE19AE26D911F100E30AFF /* FirstView.swift */; };
@@ -31,6 +32,7 @@
 		FF33C39C26D8293500C13C7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF540FBC26D95BC0004BF549 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FF540FBE26D95E14004BF549 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = ../TableViewCell.swift; sourceTree = "<group>"; };
+		FFB0E85026E0D80D00D61D8C /* ReviewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewRecipeViewController.swift; sourceTree = "<group>"; };
 		FFF9875426DA5D84006BEE18 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		FFFD9D0926DBD39F00CB5855 /* InfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
 		FFFE19AE26D911F100E30AFF /* FirstView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		FF3A85A426DEB2690068A8F2 /* SecondView */ = {
 			isa = PBXGroup;
 			children = (
+				FFB0E85026E0D80D00D61D8C /* ReviewRecipeViewController.swift */,
 				FFFD9D0926DBD39F00CB5855 /* InfoTableViewController.swift */,
 				FF2A154A26DBFE3D00933AF7 /* InfoTableViewCell.swift */,
 			);
@@ -182,6 +185,7 @@
 				FF540FBF26D95E14004BF549 /* TableViewCell.swift in Sources */,
 				FFF9875526DA5D84006BEE18 /* Food.swift in Sources */,
 				FFFD9D0A26DBD39F00CB5855 /* InfoTableViewController.swift in Sources */,
+				FFB0E85126E0D80D00D61D8C /* ReviewRecipeViewController.swift in Sources */,
 				FF2A154B26DBFE3D00933AF7 /* InfoTableViewCell.swift in Sources */,
 				FFFE19AF26D911F100E30AFF /* FirstView.swift in Sources */,
 				FF540FBD26D95BC0004BF549 /* CollectionViewCell.swift in Sources */,

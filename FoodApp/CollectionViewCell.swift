@@ -9,7 +9,7 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-
     @IBOutlet var foodImage: UIImageView!
     @IBOutlet var review: UILabel!
+    
 }

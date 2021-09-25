@@ -14,18 +14,18 @@ class InfoTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet var tableView:UITableView!
     var food: Food!
     var foods = [Food] ()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         foodImage.image = UIImage(named: food.foodImage)
         tableView.reloadData()
         title = food.foodName
     }
-
+    
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -48,9 +48,5 @@ class InfoTableViewController: UIViewController, UITableViewDataSource, UITableV
             cell.label.text = "nil"
         }
         return cell
-    }
-    
-    @IBAction func check() {
-    
     }
 }

@@ -10,28 +10,30 @@ import UIKit
 
 class FirstView: UITableViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var foods = [Food]()
     @IBOutlet var collectionView: UICollectionView!
+    var foods = [Food]()
+    let food = Food()
+    var numberOfCells = 0
     
+    var test: CollectionViewCell!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.reloadData()
         collectionView.reloadData()
         readJsonFile("foods")
-        print("view loaded")
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:
             .Plain, target: nil, action: nil)
     }
-    
+
     func readJsonFile(path: String) {
         if let filePath = NSBundle.mainBundle().pathForResource(path, ofType: "json") {
             let data = NSData(contentsOfFile: filePath)
-//            print("Data: \(data)")
             parseJsonFile(data!)
         }
     }
-    
+
     func parseJsonFile(data: NSData) -> [Food] {
         do {
             let decodedData = try NSJSONSerialization.JSONObjectWithData(data, options: [ ]) as? NSDictionary
@@ -46,6 +48,7 @@ class FirstView: UITableViewController,UICollectionViewDataSource, UICollectionV
                 food.ingredients = jsonFood["ingredients"] as! String
                 food.steps = jsonFood["steps"] as! String
                 food.neededTime = jsonFood["time"] as! String
+                food.review = jsonFood["review"] as! String
                 foods.append(food)
             }
             
@@ -54,22 +57,47 @@ class FirstView: UITableViewController,UICollectionViewDataSource, UICollectionV
     }
     
     // CollectionView:
-    
+
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return foods.count
+        return numberOfCells
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionCell", forIndexPath: indexPath) as! CollectionViewCell
-        cell.foodImage.image = UIImage(named: foods[indexPath.row].foodImage)
+        cell.foodImage.image = UIImage(named: foods[indexPath.row].foodImage) 
         cell.foodImage.layer.cornerRadius = 30.0
         cell.foodImage.clipsToBounds = true
-        cell.review.text = "It is working fine."
+        cell.review.text = foods[indexPath.row].review
         return cell
+    } 
+    @IBAction func reviewingButtonTapped(segue: UIStoryboardSegue) {
+        
+        if let review = segue.identifier {
+            switch review {
+            case "great":
+                    food.review = "So good."
+                    numberOfCells += 1
+                    print(numberOfCells)
+            case "notBad":
+                    food.review = "Not bad."
+                    numberOfCells += 1
+                    print(numberOfCells)
+            case "dislike":
+                    food.review = "I don't like it."
+                    numberOfCells += 1
+                    print(numberOfCells)
+            default:
+                for food in foods {
+                    food.review = ""
+                }
+            }
+        }
+        collectionView.reloadData()
     }
     
     // Table View:
@@ -88,9 +116,10 @@ class FirstView: UITableViewController,UICollectionViewDataSource, UICollectionV
         cell.foodNameLabel.text = String(self.foods[indexPath.row].foodName)
         cell.foodImage.layer.cornerRadius = 25.0
         cell.foodImage.clipsToBounds = true
+    
         return cell
     }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showRecipe" {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -98,5 +127,7 @@ class FirstView: UITableViewController,UICollectionViewDataSource, UICollectionV
                 destinationVC.food = foods[indexPath.row]
             }
         }
+    }
+    @IBAction func close(segue:UIStoryboardSegue) {
     }
 }
